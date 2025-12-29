@@ -141,16 +141,21 @@
 
         .light h1,
         .light h2,
-        .light h3:not(.bg-soliBlue h3):not(.bg-soliYellow h3) {
+        .light h3 {
             color: #0f172a;
         }
 
-        .light .bg-soliBlue h3 {
-            color: #f7d305 !important;
-        }
-
+        /* Themed cards text overrides (Order matters for nesting) */
+        .light .bg-soliYellow h1,
+        .light .bg-soliYellow h2,
         .light .bg-soliYellow h3 {
             color: #3945ba !important;
+        }
+
+        .light .bg-soliBlue h1,
+        .light .bg-soliBlue h2,
+        .light .bg-soliBlue h3 {
+            color: #F2B705 !important;
         }
 
         /* Ensure Header/Footer stays blue in Light Mode */
@@ -481,15 +486,32 @@
                     <ul class="space-y-3 mb-10 relative z-10">
                         <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
                             <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
-                            <span>Maquetter une application Web & UI statique responsive</span>
+                            <span>Maquetter une application</span>
                         </li>
                         <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
                             <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
-                            <span>Créer une base de données & Back-end scripts</span>
+                            <span>Réaliser une interface utilisateur web statique, responsive et adaptable</span>
                         </li>
                         <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
                             <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
-                            <span>Développer la partie Backend avec Laravel</span>
+                            <span>Créer une base de données</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
+                            <span>Préparer les composants d’accès aux données</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
+                            <span>Programmer back-end et front-end d’une application web</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
+                            <span>Réaliser une interface utilisateur avec une solution de gestion de contenu</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-blue-50 dark:text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-soliYellow flex-shrink-0"></i>
+                            <span>Élaborer et mettre en œuvre des composants dans une application de gestion de
+                                contenu</span>
                         </li>
                     </ul>
 
@@ -770,11 +792,21 @@
                     Devenez développeurs dès à présent en rejoignant une formation de qualité au cœur de Tanger.
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-soliYellow">
+                    <a href="https://www.linkedin.com/school/solicode-tanger/" target="_blank" rel="noopener noreferrer"
+                        class="text-soliYellow hover:scale-110 transition-transform">
                         <i data-lucide="linkedin" class="w-6 h-6"></i>
                     </a>
-                    <a href="#" class="text-soliYellow">
+                    <a href="https://web.facebook.com/solicodetanger" target="_blank" rel="noopener noreferrer"
+                        class="text-soliYellow hover:scale-110 transition-transform">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://www.instagram.com/solicodetanger" target="_blank" rel="noopener noreferrer"
+                        class="text-soliYellow hover:scale-110 transition-transform">
                         <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SolicodeTanger/" target="_blank" rel="noopener noreferrer"
+                        class="text-soliYellow hover:scale-110 transition-transform">
+                        <i data-lucide="youtube" class="w-6 h-6"></i>
                     </a>
                 </div>
             </div>
