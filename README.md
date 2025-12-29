@@ -1,1 +1,1 @@
-# solicode-qcm-individuel
+# solicode_qcm_personel
