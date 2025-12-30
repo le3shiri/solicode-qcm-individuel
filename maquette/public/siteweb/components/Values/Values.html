@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoliCode Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                     animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+        <style>
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #3945ba, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient-blue {
+            background: linear-gradient(135deg, #3945ba 0%, #1e293b 100%);
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        #scroll-progress {
+            transform-origin: 0% 50%;
+        }
+
+        /* Light Mode Overrides */
+        .light body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .light section {
+            background-color: transparent !important;
+        }
+
+        .light .glass {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .light .text-slate-400,
+        .light .text-slate-300 {
+            color: #475569;
+        }
+
+        .light .bg-slate-900,
+        .light .bg-slate-900\/50 {
+            background-color: #f1f5f9 !important;
+        }
+
+        .light .logo-img {
+            filter: none !important;
+        }
+
+        .light .text-gradient {
+            background: linear-gradient(to right, #3945ba, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .light .hero-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+        }
+
+        .light header.glass {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .light .border-white\/5,
+        .light .border-white\/10 {
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .light .text-slate-400 {
+            color: #334155 !important;
+        }
+
+        .light h1,
+        .light h2,
+        .light h3 {
+            color: #0f172a;
+        }
+
+        /* Themed cards text overrides (Order matters for nesting) */
+        .light .bg-soliYellow h1,
+        .light .bg-soliYellow h2,
+        .light .bg-soliYellow h3 {
+            color: #3945ba !important;
+        }
+
+        .light .bg-soliBlue h1,
+        .light .bg-soliBlue h2,
+        .light .bg-soliBlue h3 {
+            color: #F2B705 !important;
+        }
+
+        /* Ensure Header/Footer stays blue in Light Mode */
+        .light footer .text-slate-400,
+        .light footer .text-slate-500 {
+            color: #d1d5db !important;
+        }
+
+        .light footer h4,
+        .light header nav a {
+            color: #ffffff !important;
+        }
+
+        .light footer .border-white\/5,
+        .light header.border-b {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-200 font-sans p-4"><!-- Values Section -->
+<section class="py-24 bg-slate-100 dark:bg-slate-900 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 space-y-4">
+            <span class="text-soliYellow font-mono font-bold uppercase">Nos Valeurs</span>
+            <h2 class="text-4xl font-bold">Pourquoi choisir <span class="text-soliBlue">SoliCode</span> ?</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Value 1 -->
+            <div
+                class="p-8 rounded-3xl glass hover:border-soliYellow/30 transition-all group bg-white dark:bg-transparent shadow-sm dark:shadow-none">
+                <div
+                    class="w-16 h-16 bg-soliYellow/10 rounded-2xl flex items-center justify-center mb-6 border border-soliYellow/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="hand-heart" class="text-soliYellow w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Formation Inclusive</h3>
+                <p class="text-slate-400 leading-relaxed">
+                    Quel que soit votre niveau d’étude, la passion pour la technologie et l’envie d’apprentissage
+                    sont les seuls critères pour nous rejoindre.
+                </p>
+            </div>
+            <!-- Value 2 -->
+            <div
+                class="p-8 rounded-3xl glass hover:border-soliYellow/30 transition-all group bg-white dark:bg-transparent shadow-sm dark:shadow-none">
+                <div
+                    class="w-16 h-16 bg-soliYellow/10 rounded-2xl flex items-center justify-center mb-6 border border-soliYellow/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="lightbulb" class="text-soliYellow w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Méthodologie Innovante</h3>
+                <p class="text-slate-400 leading-relaxed">
+                    SOLICODE est doté de moyens pédagogiques et techniques innovants favorisant l’apprentissage des
+                    technologies les plus demandées au marché.
+                </p>
+            </div>
+            <!-- Value 3 -->
+            <div
+                class="p-8 rounded-3xl glass hover:border-soliYellow/30 transition-all group bg-white dark:bg-transparent shadow-sm dark:shadow-none">
+                <div
+                    class="w-16 h-16 bg-soliYellow/10 rounded-2xl flex items-center justify-center mb-6 border border-soliYellow/20 group-hover:scale-110 transition-transform">
+                    <i data-lucide="rocket" class="text-soliYellow w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Pédagogie Active</h3>
+                <p class="text-slate-400 leading-relaxed">
+                    Apprentissage par projets dans des situations réelles avec l'accompagnement d'experts pour une
+                    insertion professionnelle garantie.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>    <script>
+        lucide.createIcons();
+    </script>
+    <!-- Theme Toggle for Component Testing -->
+    <button onclick="toggleTheme()" class="fixed top-4 right-4 z-[9999] p-2 bg-slate-800 text-white rounded-full border border-gray-600 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+        D-L
+    </button>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+            } else {
+                html.classList.add('dark');
+                html.classList.remove('light');
+            }
+        }
+        // Set default to dark
+        document.documentElement.classList.add('dark');
+    </script>
+</body>
+</html>
+

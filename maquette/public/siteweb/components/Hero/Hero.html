@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoliCode Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                     animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+        <style>
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #3945ba, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient-blue {
+            background: linear-gradient(135deg, #3945ba 0%, #1e293b 100%);
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        #scroll-progress {
+            transform-origin: 0% 50%;
+        }
+
+        /* Light Mode Overrides */
+        .light body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .light section {
+            background-color: transparent !important;
+        }
+
+        .light .glass {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .light .text-slate-400,
+        .light .text-slate-300 {
+            color: #475569;
+        }
+
+        .light .bg-slate-900,
+        .light .bg-slate-900\/50 {
+            background-color: #f1f5f9 !important;
+        }
+
+        .light .logo-img {
+            filter: none !important;
+        }
+
+        .light .text-gradient {
+            background: linear-gradient(to right, #3945ba, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .light .hero-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
+        }
+
+        .light header.glass {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .light .border-white\/5,
+        .light .border-white\/10 {
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .light .text-slate-400 {
+            color: #334155 !important;
+        }
+
+        .light h1,
+        .light h2,
+        .light h3 {
+            color: #0f172a;
+        }
+
+        /* Themed cards text overrides (Order matters for nesting) */
+        .light .bg-soliYellow h1,
+        .light .bg-soliYellow h2,
+        .light .bg-soliYellow h3 {
+            color: #3945ba !important;
+        }
+
+        .light .bg-soliBlue h1,
+        .light .bg-soliBlue h2,
+        .light .bg-soliBlue h3 {
+            color: #F2B705 !important;
+        }
+
+        /* Ensure Header/Footer stays blue in Light Mode */
+        .light footer .text-slate-400,
+        .light footer .text-slate-500 {
+            color: #d1d5db !important;
+        }
+
+        .light footer h4,
+        .light header nav a {
+            color: #ffffff !important;
+        }
+
+        .light footer .border-white\/5,
+        .light header.border-b {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-200 font-sans p-4"><!-- Hero Section -->
+<section id="accueil" class="relative min-h-screen flex items-center pt-20 overflow-hidden hero-pattern">
+    <div
+        class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-soliBlue/10 dark:from-soliBlue/10 to-transparent pointer-events-none">
+    </div>
+    <div
+        class="absolute -top-24 -left-24 w-96 h-96 bg-soliYellow/10 dark:bg-soliYellow/10 rounded-full blur-3xl opacity-50 dark:opacity-100">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="space-y-8" data-aos="fade-right">
+            <div
+                class="inline-flex items-center space-x-2 bg-soliYellow/5 border border-soliYellow/20 px-4 py-2 rounded-full">
+                <span class="w-2 h-2 bg-soliYellow rounded-full animate-pulse"></span>
+                <span class="text-soliYellow font-semibold text-sm uppercase tracking-wider">Inscription 2025 - 2026
+                    Ouverte</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                Codez Votre <br>
+                <span class="text-gradient">Future Digital</span>
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                Vous avez entre 18 et 35 ans? Vous êtes motivé, passionné par les technologies digitales? Rejoignez
+                SoliCode et devenez les acteurs du monde de demain.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#inscription"
+                    class="bg-soliYellow text-darkBg hover:scale-105 transition-transform px-8 py-4 rounded-xl font-bold flex items-center group shadow-xl shadow-soliYellow/10">
+                    Inscrivez-vous maintenant
+                    <i data-lucide="arrow-right" class="ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#formation"
+                    class="bg-soliBlue text-white hover:bg-soliBlue/90 px-8 py-4 rounded-xl font-bold transition-all flex items-center shadow-xl shadow-soliBlue/30 border border-white/10 group">
+                    Découvrir <span class="text-soliYellow ml-1.5 transition-transform group-hover:scale-110">nos
+                        formations</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="relative md:block hidden">
+            <div class="absolute -inset-4 bg-gradient-to-r from-soliBlue to-soliYellow rounded-2xl opacity-20 blur-2xl">
+            </div>
+            <!-- Using the generated hero image -->
+            <img src="../../images/solicode_hero.png" alt="SoliCode Learning Environment"
+                class="rounded-2xl shadow-2xl border border-white/10 relative z-10 w-full object-cover aspect-video md:aspect-square">
+
+            <!-- Floating Info Card -->
+            <div
+                class="absolute -bottom-6 -left-6 bg-soliBlue p-6 rounded-2xl shadow-2xl z-20 max-w-xs border border-white/10">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="p-3 bg-soliYellow/20 rounded-lg">
+                        <i data-lucide="users" class="text-soliYellow"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-soliYellow uppercase font-bold tracking-wider">Places limitées</p>
+                        <p class="text-2xl font-bold text-white">100 Places</p>
+                    </div>
+                </div>
+                <p class="text-xs text-blue-100 italic opacity-90">Formation solidaire, inclusive et 100% pratique.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>    <script>
+        lucide.createIcons();
+    </script>
+    <!-- Theme Toggle for Component Testing -->
+    <button onclick="toggleTheme()" class="fixed top-4 right-4 z-[9999] p-2 bg-slate-800 text-white rounded-full border border-gray-600 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+        D-L
+    </button>
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+            } else {
+                html.classList.add('dark');
+                html.classList.remove('light');
+            }
+        }
+        // Set default to dark
+        document.documentElement.classList.add('dark');
+    </script>
+</body>
+</html>
+

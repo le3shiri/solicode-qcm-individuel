@@ -1,0 +1,158 @@
+<!-- Scripts -->
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // 1. Initialize Lenis Smooth Scroll (moved up so other code can use `lenis`)
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 0. Theme Toggle Logic (Initialize early)
+    const themeToggles = document.querySelectorAll('.theme-toggle-btn');
+    const html = document.documentElement;
+
+    const updateTheme = (isDark) => {
+        if (isDark) {
+            html.classList.add('dark');
+            html.classList.remove('light');
+        } else {
+            html.classList.remove('dark');
+            html.classList.add('light');
+        }
+    };
+
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    updateTheme(savedTheme === 'dark');
+
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isDark = html.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+            updateTheme(!isDark);
+            localStorage.setItem('theme', newTheme);
+        });
+    });
+
+    // Back to Top Button Logic (Integrated with Lenis)
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        lenis.on('scroll', ({ scroll }) => {
+            if (scroll > 600) {
+                backToTop.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTop.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTop.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            lenis.scrollTo(0, {
+                duration: 1.5,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            });
+        });
+    }
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('bg-soliBlue/95', 'dark:bg-darkBg/95', 'backdrop-blur-md', 'py-2', 'shadow-2xl');
+            navbar.classList.remove('py-4', 'bg-soliBlue', 'dark:bg-transparent');
+        } else {
+            navbar.classList.remove('bg-soliBlue/95', 'dark:bg-darkBg/95', 'backdrop-blur-md', 'py-2', 'shadow-2xl');
+            navbar.classList.add('py-4', 'bg-soliBlue', 'dark:bg-transparent');
+        }
+    });
+
+    // Mobile Menu Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('menu-close');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    const toggleMenu = (show) => {
+        if (show) {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => mobileMenu.classList.remove('translate-x-full'), 10);
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    menuToggle.addEventListener('click', () => toggleMenu(true));
+    closeMenu.addEventListener('click', () => toggleMenu(false));
+    menuLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+    // Lenis initialization moved earlier above so other listeners can use `lenis`.
+
+    // 2. Motion One Animations
+    const { animate, scroll, inView, stagger } = Motion;
+
+    // Sync scroll progress with Lenis
+    scroll(animate("#scroll-progress", { scaleX: [0, 1] }, { ease: "linear" }));
+
+    // 3. Section Reveal Animations
+    inView("section", ({ target }) => {
+        animate(target,
+            { opacity: [0, 1], y: [60, 0] },
+            { duration: 0.8, easing: [0.17, 0.55, 0.55, 1] }
+        );
+        return () => animate(target, { opacity: 0, y: 60 }); // Optional: out-of-view reset
+    }, { margin: "-10% 0px -10% 0px" });
+
+    // 4. Staggered reveal for cards with parallax-like feel
+    inView(".grid > div", ({ target }) => {
+        animate(target,
+            { opacity: [0, 1], y: [30, 0], scale: [0.98, 1] },
+            { delay: stagger(0.1), duration: 0.6 }
+        );
+    });
+
+    // 5. Hero Load Animation
+    window.addEventListener('load', () => {
+        animate("#accueil h1", { opacity: [0, 1], y: [30, 0] }, { duration: 1, easing: [0.17, 0.55, 0.55, 1] });
+        animate("#accueil p", { opacity: [0, 1], y: [20, 0] }, { duration: 1, delay: 0.2 });
+        animate("#accueil .flex-wrap", { opacity: [0, 1], y: [20, 0] }, { duration: 0.8, delay: 0.4 });
+        animate("#accueil .relative.md\\:block", { opacity: [0, 1], scale: [0.9, 1] }, { duration: 1.2, delay: 0.3 });
+    });
+
+    // 6. Smooth scroll for all anchor links via Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                lenis.scrollTo(targetElement, {
+                    offset: -80, // Adjust for fixed header
+                    duration: 1.5,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                });
+            }
+        });
+    });
+</script>
