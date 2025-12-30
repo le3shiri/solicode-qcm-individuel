@@ -213,7 +213,14 @@
 
                 <a href="#inscription"
                     class="bg-soliYellow text-darkBg px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-soliYellow/20 hover:bg-white">Inscription</a>
+
+                <!-- Desktop user icon (visible on md+ next to Inscription) -->
+                <a href="#" id="header-user" aria-label="Utilisateur" class="ml-4 p-2 rounded-full hover:bg-white/10 transition-colors text-soliYellow flex items-center">
+                    <i data-lucide="user" class="w-6 h-6"></i>
+                </a>
             </div>
+
+            <!-- header user removed: user icon lives inside the mobile navigation only -->
 
             <!-- Mobile Menu Toggle -->
             <button class="md:hidden text-white" id="menu-toggle">
@@ -243,7 +250,12 @@
                 <i data-lucide="sun" class="w-6 h-6 hidden dark:block text-soliYellow"></i>
             </button>
 
-            <a href="#inscription" class="bg-soliBlue text-white px-8 py-3 rounded-full">Inscription</a>
+            <div class="flex items-center space-x-4">
+                <a href="#" id="mobile-user" aria-label="Utilisateur" class="p-2 rounded-full hover:bg-white/10 transition-colors text-soliYellow flex items-center justify-center">
+                    <i data-lucide="user" class="w-6 h-6"></i>
+                </a>
+                <a href="#inscription" class="bg-soliBlue text-white px-6 py-3 rounded-full">Inscription</a>
+            </div>
         </div>
     </div>
 
@@ -873,6 +885,25 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
+        // 1. Initialize Lenis Smooth Scroll (moved up so other code can use `lenis`)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
         // 0. Theme Toggle Logic (Initialize early)
         const themeToggles = document.querySelectorAll('.theme-toggle-btn');
         const html = document.documentElement;
@@ -956,24 +987,7 @@
         closeMenu.addEventListener('click', () => toggleMenu(false));
         menuLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
 
-        // 1. Initialize Lenis Smooth Scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+        // Lenis initialization moved earlier above so other listeners can use `lenis`.
 
         // 2. Motion One Animations
         const { animate, scroll, inView, stagger } = Motion;
