@@ -25,7 +25,7 @@ L’application contient **deux parties** :
   - Consultation des résultats
   - Validation / Planification d’entretien
 ### choix de labs
-- SPATIE
+- LENIS
 
 
 ## 👩‍💻 Réalisé par
