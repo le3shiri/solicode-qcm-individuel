@@ -62,7 +62,7 @@ Livrer une interface publique statique et responsive qui reflète la maquette :
 ---
 # Méthodologies
  Méthodologie ( SCRUM )
-![w:800 SCRUM](imgs-presenatation/SCRUM.JPG)
+![SCRUM](imgs-presenatation/SCRUM.JPG)
 
 ---
 
