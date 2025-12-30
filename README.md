@@ -77,8 +77,6 @@ Livrer une interface publique statique et responsive qui reflète la maquette :
 - Navigation responsive (desktop + mobile)
 - Hero avec CTA d'inscription
 - Section statistiques (KPI)
-- Fiches formations (liste / détail)
-- Formulaire contact simple
 - Menu mobile avec icône utilisateur
 - Thème clair/sombre persistant
 - Smooth scroll + back-to-top
