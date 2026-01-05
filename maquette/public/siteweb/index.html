@@ -165,7 +165,7 @@
         }
 
         .light footer h4,
-        .light header nav a {
+        .light header nav a:not(.bg-soliYellow):not(#header-user):not(:hover) {
             color: #ffffff !important;
         }
 
@@ -184,47 +184,49 @@
 
     <!-- Header / Navbar -->
     <header
-        class="fixed w-full z-50 transition-all duration-300 bg-soliBlue dark:bg-transparent border-b border-white/10 dark:border-none"
+        class="fixed w-full top-0 left-0 z-50 transition-all duration-300 bg-soliBlue dark:bg-transparent border-b border-white/10 dark:border-none"
         id="navbar">
-        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
-            <a href="#" class="flex items-center space-x-3 group">
+        <nav class="w-full px-12 lg:px-24 py-6 flex items-center justify-between text-white relative">
+            <a href="#" class="flex items-center space-x-3 group relative z-10">
                 <img src="https://solicode.co/images/logo/logo-solicode.svg" alt="SoliCode Logo"
-                    class="logo-img h-14 w-auto transition-transform group-hover:scale-110 brightness-0 invert">
+                    class="logo-img h-28 w-auto transition-transform group-hover:scale-110 brightness-0 invert">
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8">
+            <!-- Centered Desktop Menu -->
+            <div
+                class="hidden md:flex items-center justify-center space-x-12 absolute left-1/2 transform -translate-x-1/2 text-2xl">
                 <a href="#accueil"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Accueil</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Accueil</a>
                 <a href="#a-propos"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">SoliCode</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">SoliCode</a>
                 <a href="#formation"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Formation</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Formation</a>
                 <a href="#activites"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Activités</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Activités</a>
                 <a href="#contact"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Contact</a>
-
-                <!-- Theme Toggle -->
-                <button class="theme-toggle-btn p-2 rounded-lg hover:bg-white/10 transition-colors text-white">
-                    <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-soliYellow"></i>
-                </button>
-
-                <a href="#inscription"
-                    class="bg-soliYellow text-darkBg px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-soliYellow/20 hover:bg-white">Inscription</a>
-
-                <!-- Desktop user icon (visible on md+ next to Inscription) -->
-                <a href="#" id="header-user" aria-label="Utilisateur"
-                    class="ml-4 p-2 rounded-full hover:bg-white/10 transition-colors text-soliYellow flex items-center">
-                    <i data-lucide="user" class="w-6 h-6"></i>
-                </a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
             </div>
 
-            <!-- header user removed: user icon lives inside the mobile navigation only -->
+            <!-- Right Side Items: Inscription -> User -> Theme Toggle -->
+            <div class="hidden md:flex items-center space-x-6 relative z-10">
+                <a href="#inscription"
+                    class="bg-soliYellow text-darkBg px-8 py-3.5 rounded-full font-bold text-lg transition-all shadow-lg shadow-soliYellow/20 hover:bg-white hover:text-soliBlue">Inscription</a>
+
+                <a href="#" id="header-user" aria-label="Utilisateur"
+                    class="p-3 rounded-full hover:bg-white/10 transition-colors text-soliYellow flex items-center">
+                    <i data-lucide="user" class="w-8 h-8"></i>
+                </a>
+
+                <button class="theme-toggle-btn p-3 rounded-lg hover:bg-white/10 transition-colors text-white">
+                    <i data-lucide="moon" class="w-8 h-8 dark:hidden"></i>
+                    <i data-lucide="sun" class="w-8 h-8 hidden dark:block text-soliYellow"></i>
+                </button>
+            </div>
+
+            <!-- Header user removed: user icon lives inside the mobile navigation only -->
 
             <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-white" id="menu-toggle">
+            <button class="md:hidden text-white relative z-10" id="menu-toggle">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
@@ -270,57 +272,64 @@
             class="absolute -top-24 -left-24 w-96 h-96 bg-soliYellow/10 dark:bg-soliYellow/10 rounded-full blur-3xl opacity-50 dark:opacity-100">
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-8" data-aos="fade-right">
+        <div class="w-full px-12 lg:px-24 grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="space-y-10" data-aos="fade-right">
                 <div
-                    class="inline-flex items-center space-x-2 bg-soliYellow/5 border border-soliYellow/20 px-4 py-2 rounded-full">
-                    <span class="w-2 h-2 bg-soliYellow rounded-full animate-pulse"></span>
-                    <span class="text-soliYellow font-semibold text-sm uppercase tracking-wider">Inscription 2025 - 2026
+                    class="inline-flex items-center space-x-3 bg-blue-50 border border-blue-200 dark:bg-soliBlue/10 dark:border-soliYellow/20 px-8 py-3.5 rounded-full shadow-lg shadow-blue-900/5 hover:scale-105 transition-transform duration-300">
+                    <span class="relative flex h-3 w-3">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-soliBlue opacity-75 dark:bg-soliYellow"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-soliBlue dark:bg-soliYellow"></span>
+                    </span>
+                    <span
+                        class="text-soliBlue dark:text-soliYellow font-bold text-lg uppercase tracking-wider">Inscription
+                        2025 - 2026
                         Ouverte</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                <h1 class="text-6xl md:text-8xl font-bold leading-tight">
                     Codez Votre <br>
                     <span class="text-gradient">Future Digital</span>
                 </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                <p class="text-2xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
                     Vous avez entre 18 et 35 ans? Vous êtes motivé, passionné par les technologies digitales? Rejoignez
                     SoliCode et devenez les acteurs du monde de demain.
                 </p>
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap gap-6">
                     <a href="#inscription"
-                        class="bg-soliYellow text-darkBg hover:scale-105 transition-transform px-8 py-4 rounded-xl font-bold flex items-center group shadow-xl shadow-soliYellow/10">
+                        class="bg-soliYellow text-darkBg hover:scale-105 transition-transform px-10 py-5 rounded-xl font-bold text-xl flex items-center group shadow-xl shadow-soliYellow/10">
                         Inscrivez-vous maintenant
-                        <i data-lucide="arrow-right" class="ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        <i data-lucide="arrow-right"
+                            class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                     <a href="#formation"
-                        class="bg-soliBlue text-white hover:bg-soliBlue/90 px-8 py-4 rounded-xl font-bold transition-all flex items-center shadow-xl shadow-soliBlue/30 border border-white/10 group">
-                        Découvrir <span class="text-soliYellow ml-1.5 transition-transform group-hover:scale-110">nos
+                        class="bg-soliBlue text-white hover:bg-soliBlue/90 px-10 py-5 rounded-xl font-bold text-xl transition-all flex items-center shadow-xl shadow-soliBlue/30 border border-white/10 group">
+                        Découvrir <span class="text-soliYellow ml-2 transition-transform group-hover:scale-110">nos
                             formations</span>
                     </a>
                 </div>
             </div>
 
-            <div class="relative md:block hidden">
+            <div class="relative md:block hidden w-[80%] mx-auto">
                 <div
-                    class="absolute -inset-4 bg-gradient-to-r from-soliBlue to-soliYellow rounded-2xl opacity-20 blur-2xl">
+                    class="absolute -inset-6 bg-gradient-to-r from-soliBlue to-soliYellow rounded-2xl opacity-20 blur-3xl">
                 </div>
                 <!-- Using the generated hero image -->
                 <img src="images/solicode_hero.png" alt="SoliCode Learning Environment"
-                    class="rounded-2xl shadow-2xl border border-white/10 relative z-10 w-full object-cover aspect-video md:aspect-square">
+                    class="rounded-3xl shadow-2xl border border-white/10 relative z-10 w-full object-cover aspect-video md:aspect-square">
 
                 <!-- Floating Info Card -->
                 <div
-                    class="absolute -bottom-6 -left-6 bg-soliBlue p-6 rounded-2xl shadow-2xl z-20 max-w-xs border border-white/10">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="p-3 bg-soliYellow/20 rounded-lg">
-                            <i data-lucide="users" class="text-soliYellow"></i>
+                    class="absolute -bottom-10 -left-10 bg-soliBlue p-8 rounded-3xl shadow-2xl z-20 max-w-sm border border-white/10">
+                    <div class="flex items-center space-x-6 mb-6">
+                        <div class="p-4 bg-soliYellow/20 rounded-xl">
+                            <i data-lucide="users" class="text-soliYellow w-8 h-8"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-soliYellow uppercase font-bold tracking-wider">Places limitées</p>
-                            <p class="text-2xl font-bold text-white">100 Places</p>
+                            <p class="text-base text-soliYellow uppercase font-bold tracking-wider">Places limitées</p>
+                            <p class="text-3xl font-bold text-white">100 Places</p>
                         </div>
                     </div>
-                    <p class="text-xs text-blue-100 italic opacity-90">Formation solidaire, inclusive et 100% pratique.
+                    <p class="text-sm text-blue-100 italic opacity-90">Formation solidaire, inclusive et 100% pratique.
                     </p>
                 </div>
             </div>
@@ -332,23 +341,39 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 <div
-                    class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20">
+                    class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliYellow/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="users" class="w-6 h-6 text-soliYellow"></i>
+                    </div>
                     <p class="text-4xl md:text-5xl font-bold text-soliYellow mb-2">11</p>
                     <p class="text-white dark:text-slate-300 font-medium font-mono">Staff & Experts</p>
                 </div>
                 <div
-                    class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20">
+                    class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliBlue/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="keyboard" class="w-6 h-6 text-soliBlue dark:text-soliYellow"></i>
+                    </div>
                     <p class="text-4xl md:text-5xl font-bold text-soliBlue dark:text-soliYellow mb-2">100</p>
                     <p class="text-soliBlue dark:text-slate-300 font-bold dark:font-medium font-mono">Places
                         Pédagogiques</p>
                 </div>
                 <div
-                    class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20">
+                    class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliYellow/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-6 h-6 text-soliYellow"></i>
+                    </div>
                     <p class="text-4xl md:text-5xl font-bold text-soliYellow mb-2">260</p>
                     <p class="text-white dark:text-slate-300 font-medium font-mono">Lauréats</p>
                 </div>
                 <div
-                    class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20">
+                    class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliBlue/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="award" class="w-6 h-6 text-soliBlue dark:text-soliYellow"></i>
+                    </div>
                     <p class="text-4xl md:text-5xl font-bold text-soliBlue dark:text-soliYellow mb-2">2</p>
                     <p class="text-soliBlue dark:text-slate-300 font-bold dark:font-medium font-mono">Filières</p>
                 </div>
@@ -358,14 +383,14 @@
 
     <!-- About Section -->
     <section id="a-propos" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="w-full px-12 lg:px-24">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
-                <div class="lg:w-1/2 space-y-6">
-                    <span class="text-soliBlue font-mono font-bold tracking-widest uppercase">01 // À propos de
+                <div class="lg:w-1/2 space-y-8">
+                    <span class="text-soliBlue font-mono font-bold tracking-widest uppercase text-xl">01 // À propos de
                         nous</span>
-                    <h2 class="text-4xl md:text-5xl font-bold leading-tight">Centre de Formation <br><span
+                    <h2 class="text-5xl md:text-6xl font-bold leading-tight">Centre de Formation <br><span
                             class="text-soliBlue">Solidaire & Inclusif</span></h2>
-                    <div class="space-y-4 text-slate-400 text-lg leading-relaxed">
+                    <div class="space-y-6 text-slate-400 text-xl leading-relaxed">
                         <p>SOLICODE est un centre ouvert aux jeunes motivés et intéressés par les métiers du
                             Développement Web et Mobile.</p>
                         <p>L’apprenant à SOLICODE est l'acteur principal de son apprentissage. Il construit ses savoirs
@@ -374,16 +399,16 @@
                         <p>La formation est axée sur quatre piliers : la technique, les soft-skills, l'entrepreneuriat
                             et la gestion de projet.</p>
                     </div>
-                    <div class="pt-6 border-t border-white/10 flex items-center space-x-6">
+                    <div class="pt-8 border-t border-white/10 flex items-center space-x-8">
                         <div class="flex items-center space-x-4">
-                            <div class="h-10 w-auto bg-white/5 p-2 rounded-lg border border-white/10">
+                            <div class="h-16 w-auto bg-white/5 p-3 rounded-xl border border-white/10">
                                 <!-- Official OFPPT Logo -->
                                 <img src="https://solicode.co/images/logo/ofppt-logo.svg" alt="OFPPT Logo"
                                     class="h-full w-auto block">
                             </div>
                         </div>
-                        <p class="text-sm font-medium">Certification délivrée par l'<span
-                                class="text-soliBlue font-bold">OFPPT</span></p>
+                        <p class="text-lg font-medium">Certification délivrée par l'<a href="https://www.ofppt.ma"
+                                target="_blank" class="text-soliBlue font-bold hover:underline">OFPPT</a></p>
                     </div>
                 </div>
                 <div class="lg:w-1/2 grid grid-cols-2 gap-4">

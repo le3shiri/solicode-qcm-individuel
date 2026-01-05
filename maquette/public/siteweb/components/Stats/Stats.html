@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
@@ -24,7 +27,7 @@
                         sans: ['Outfit', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
-                     animation: {
+                    animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float': 'float 6s ease-in-out infinite',
                     },
@@ -38,7 +41,7 @@
             }
         }
     </script>
-        <style>
+    <style>
         .glass {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
@@ -155,38 +158,57 @@
         }
     </style>
 </head>
+
 <body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-200 font-sans p-4"><!-- Stats Section -->
-<section class="py-20 relative bg-slate-200/50 dark:bg-slate-900/50 border-y border-black/5 dark:border-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div
-                class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20">
-                <p class="text-4xl md:text-5xl font-bold text-soliYellow mb-2">11</p>
-                <p class="text-white dark:text-slate-300 font-medium font-mono">Staff & Experts</p>
-            </div>
-            <div
-                class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20">
-                <p class="text-4xl md:text-5xl font-bold text-soliBlue dark:text-soliYellow mb-2">100</p>
-                <p class="text-soliBlue dark:text-slate-300 font-bold dark:font-medium font-mono">Places
-                    Pédagogiques</p>
-            </div>
-            <div
-                class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20">
-                <p class="text-4xl md:text-5xl font-bold text-soliYellow mb-2">260</p>
-                <p class="text-white dark:text-slate-300 font-medium font-mono">Lauréats</p>
-            </div>
-            <div
-                class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20">
-                <p class="text-4xl md:text-5xl font-bold text-soliBlue dark:text-soliYellow mb-2">2</p>
-                <p class="text-soliBlue dark:text-slate-300 font-bold dark:font-medium font-mono">Filières</p>
+    <section class="py-20 relative bg-slate-200/50 dark:bg-slate-900/50 border-y border-black/5 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliYellow/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="users" class="w-6 h-6 text-soliYellow"></i>
+                    </div>
+                    <p class="text-4xl md:text-5xl font-bold text-soliYellow mb-2">11</p>
+                    <p class="text-white dark:text-slate-300 font-medium font-mono">Staff & Experts</p>
+                </div>
+                <div
+                    class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliBlue/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="keyboard" class="w-6 h-6 text-soliBlue dark:text-soliYellow"></i>
+                    </div>
+                    <p class="text-4xl md:text-5xl font-bold text-soliBlue dark:text-soliYellow mb-2">100</p>
+                    <p class="text-soliBlue dark:text-slate-300 font-bold dark:font-medium font-mono">Places
+                        Pédagogiques</p>
+                </div>
+                <div
+                    class="text-center p-8 bg-soliBlue dark:bg-slate-800/40 rounded-3xl border border-white/10 dark:border-soliBlue/30 hover:scale-105 transition-transform shadow-xl shadow-soliBlue/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliYellow/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-6 h-6 text-soliYellow"></i>
+                    </div>
+                    <p class="text-4xl md:text-5xl font-bold text-soliYellow mb-2">260</p>
+                    <p class="text-white dark:text-slate-300 font-medium font-mono">Lauréats</p>
+                </div>
+                <div
+                    class="text-center p-8 bg-soliYellow dark:bg-slate-800/40 rounded-3xl border border-black/5 dark:border-soliYellow/30 hover:scale-105 transition-transform shadow-xl shadow-soliYellow/20 group">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-soliBlue/20 rounded-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="award" class="w-6 h-6 text-soliBlue dark:text-soliYellow"></i>
+                    </div>
+                    <p class="text-4xl md:text-5xl font-bold text-soliBlue dark:text-soliYellow mb-2">2</p>
+                    <p class="text-soliBlue dark:text-slate-300 font-bold dark:font-medium font-mono">Filières</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>    <script>
+    </section>
+    <script>
         lucide.createIcons();
     </script>
     <!-- Theme Toggle for Component Testing -->
-    <button onclick="toggleTheme()" class="fixed top-4 right-4 z-[9999] p-2 bg-slate-800 text-white rounded-full border border-gray-600 shadow-lg cursor-pointer hover:scale-110 transition-transform">
+    <button onclick="toggleTheme()"
+        class="fixed top-4 right-4 z-[9999] p-2 bg-slate-800 text-white rounded-full border border-gray-600 shadow-lg cursor-pointer hover:scale-110 transition-transform">
         D-L
     </button>
     <script>
@@ -204,5 +226,5 @@
         document.documentElement.classList.add('dark');
     </script>
 </body>
-</html>
 
+</html>

@@ -148,7 +148,7 @@
         }
 
         .light footer h4,
-        .light header nav a {
+        .light header nav a:not(.bg-soliYellow):not(#header-user):not(:hover) {
             color: #ffffff !important;
         }
 
@@ -159,49 +159,51 @@
     </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-200 font-sans p-4"><!-- Header / Navbar -->
+<body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-200 font-sans"><!-- Header / Navbar -->
     <header
-        class="fixed w-full z-50 transition-all duration-300 bg-soliBlue dark:bg-transparent border-b border-white/10 dark:border-none"
+        class="fixed w-full top-0 left-0 z-50 transition-all duration-300 bg-soliBlue dark:bg-transparent border-b border-white/10 dark:border-none"
         id="navbar">
-        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
-            <a href="#" class="flex items-center space-x-3 group">
+        <nav class="w-full px-12 lg:px-24 py-6 flex items-center justify-between text-white relative">
+            <a href="#" class="flex items-center space-x-3 group relative z-10">
                 <img src="https://solicode.co/images/logo/logo-solicode.svg" alt="SoliCode Logo"
-                    class="logo-img h-14 w-auto transition-transform group-hover:scale-110 brightness-0 invert">
+                    class="logo-img h-28 w-auto transition-transform group-hover:scale-110 brightness-0 invert">
             </a>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8">
+            <!-- Centered Desktop Menu -->
+            <div
+                class="hidden md:flex items-center justify-center space-x-12 absolute left-1/2 transform -translate-x-1/2 text-2xl">
                 <a href="#accueil"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Accueil</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Accueil</a>
                 <a href="#a-propos"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">SoliCode</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">SoliCode</a>
                 <a href="#formation"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Formation</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Formation</a>
                 <a href="#activites"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Activités</a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Activités</a>
                 <a href="#contact"
-                    class="text-white/80 hover:text-soliYellow transition-colors font-semibold">Contact</a>
-
-                <!-- Theme Toggle -->
-                <button class="theme-toggle-btn p-2 rounded-lg hover:bg-white/10 transition-colors text-white">
-                    <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-soliYellow"></i>
-                </button>
-
-                <a href="#inscription"
-                    class="bg-soliYellow text-darkBg px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-soliYellow/20 hover:bg-white">Inscription</a>
-
-                <!-- Desktop user icon (visible on md+ next to Inscription) -->
-                <a href="#" id="header-user" aria-label="Utilisateur"
-                    class="ml-4 p-2 rounded-full hover:bg-white/10 transition-colors text-soliYellow flex items-center">
-                    <i data-lucide="user" class="w-6 h-6"></i>
-                </a>
+                    class="relative text-white/80 hover:text-soliYellow transition-colors font-semibold after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-soliYellow after:transform after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
             </div>
 
-            <!-- header user removed: user icon lives inside the mobile navigation only -->
+            <!-- Right Side Items: Inscription -> User -> Theme Toggle -->
+            <div class="hidden md:flex items-center space-x-6 relative z-10">
+                <a href="#inscription"
+                    class="bg-soliYellow text-darkBg px-8 py-3.5 rounded-full font-bold text-lg transition-all shadow-lg shadow-soliYellow/20 hover:bg-white hover:text-soliBlue">Inscription</a>
+
+                <a href="#" id="header-user" aria-label="Utilisateur"
+                    class="p-3 rounded-full hover:bg-white/10 transition-colors text-soliYellow flex items-center">
+                    <i data-lucide="user" class="w-8 h-8"></i>
+                </a>
+
+                <button class="theme-toggle-btn p-3 rounded-lg hover:bg-white/10 transition-colors text-white">
+                    <i data-lucide="moon" class="w-8 h-8 dark:hidden"></i>
+                    <i data-lucide="sun" class="w-8 h-8 hidden dark:block text-soliYellow"></i>
+                </button>
+            </div>
+
+            <!-- Header user removed: user icon lives inside the mobile navigation only -->
 
             <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-white" id="menu-toggle">
+            <button class="md:hidden text-white relative z-10" id="menu-toggle">
                 <i data-lucide="menu"></i>
             </button>
         </nav>
