@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions - SoliCode V3 Ultra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 40px rgba(57, 69, 186, 0.2)',
+                        'neon-yellow': '0 0 40px rgba(242, 183, 5, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-darkBg transition-colors duration-300 font-sans p-6 md:p-12 overflow-x-hidden">
+
+    <section class="max-w-7xl mx-auto w-full relative">
+
+        <!-- Ultra Header -->
+        <div class="text-center mb-24 relative z-10">
+            <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+                <span
+                    class="text-[8rem] md:text-[16rem] font-black tracking-tighter text-slate-900 dark:text-white transform -rotate-2 select-none">TERMS</span>
+            </div>
+
+            <div class="relative z-10 space-y-4">
+                <span
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md text-soliBlue dark:text-soliYellow font-mono text-xs tracking-widest uppercase font-bold">
+                    <span class="w-2 h-2 rounded-full bg-soliYellow animate-pulse"></span>
+                    Lecture Impérative
+                </span>
+
+                <h2
+                    class="text-5xl md:text-7xl font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-none">
+                    Conditions <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-soliBlue to-blue-400 dark:from-white dark:to-slate-400">Générales</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start relative z-10">
+
+            <!-- Connection Line (Desktop) -->
+            <div
+                class="hidden lg:block absolute left-[41.66%] top-0 bottom-0 w-px border-l border-dashed border-slate-300 dark:border-white/10 z-0">
+            </div>
+
+            <!-- Left Column: Key Requirements (Sticky & Stylized) -->
+            <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-8 z-10">
+
+                <!-- Card 1: Info Exacte (Glass + Neon Blue) -->
+                <div class="group relative">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-soliBlue to-indigo-500 rounded-3xl blur opacity-20 group-hover:opacity-60 transition duration-500">
+                    </div>
+                    <div
+                        class="relative bg-white dark:bg-[#151e32] p-8 rounded-3xl border border-slate-100 dark:border-white/10 overflow-hidden">
+
+                        <!-- Floating Icon Background -->
+                        <i data-lucide="file-check"
+                            class="absolute -right-6 -top-6 w-32 h-32 text-soliBlue/5 dark:text-white/5 transform rotate-12 group-hover:rotate-6 transition-transform duration-700"></i>
+
+                        <div
+                            class="w-14 h-14 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center mb-6 text-soliBlue dark:text-blue-300 shadow-lg shadow-soliBlue/10">
+                            <i data-lucide="shield-alert" class="w-7 h-7"></i>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-soliBlue transition-colors">
+                            Précision Requise</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">
+                            Toute erreur de saisie peut entraîner le rejet du dossier. Vérifiez minutieusement :
+                        </p>
+
+                        <div class="space-y-3">
+                            <div
+                                class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                                <div class="w-2 h-2 rounded-full bg-soliBlue shadow-[0_0_10px_#3945ba]"></div>
+                                <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Nom & Prénom
+                                    (Fr/Ar)</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5">
+                                <div class="w-2 h-2 rounded-full bg-soliBlue shadow-[0_0_10px_#3945ba]"></div>
+                                <span class="font-bold text-slate-700 dark:text-slate-200 text-sm">Validité Email &
+                                    Tél</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Selfie (Glass + Neon Yellow/Red) -->
+                <div class="group relative">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-soliYellow to-orange-500 rounded-3xl blur opacity-20 group-hover:opacity-60 transition duration-500">
+                    </div>
+                    <div
+                        class="relative bg-white dark:bg-[#151e32] p-8 rounded-3xl border border-slate-100 dark:border-white/10 overflow-hidden">
+
+                        <!-- Floating Icon Background -->
+                        <i data-lucide="camera"
+                            class="absolute -right-6 -top-6 w-32 h-32 text-soliYellow/5 dark:text-white/5 transform -rotate-12 group-hover:-rotate-6 transition-transform duration-700"></i>
+
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-14 h-14 bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 shadow-lg shadow-soliYellow/10">
+                                <i data-lucide="scan-face" class="w-7 h-7"></i>
+                            </div>
+                            <span
+                                class="px-3 py-1 bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400 text-[10px] font-black uppercase tracking-wider rounded-lg border border-red-200 dark:border-red-500/30 animate-pulse">
+                                Strict
+                            </span>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-soliYellow transition-colors">
+                            Photo Selfie</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">
+                            Votre visage doit être <strong
+                                class="text-slate-900 dark:text-white border-b-2 border-soliYellow">clairement
+                                visible</strong>.
+                        </p>
+
+                        <div class="p-4 bg-red-50 dark:bg-red-900/10 rounded-xl border-l-4 border-red-500">
+                            <p class="text-xs font-bold text-red-700 dark:text-red-300 leading-relaxed flex gap-2">
+                                <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0 mt-0.5"></i>
+                                Une photo floue ou sombre entraînera une disqualification immédiate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Timeline Content -->
+            <div class="lg:col-span-7 pb-20 z-10">
+
+                <!-- Section 1 -->
+                <div class="relative pl-8 md:pl-16 mb-16 group">
+                    <!-- Custom Number Marker -->
+                    <div
+                        class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-white dark:bg-darkCard border-2 border-slate-200 dark:border-white/10 text-slate-300 dark:text-slate-600 font-black text-xl flex items-center justify-center group-hover:border-soliBlue group-hover:text-soliBlue transition-all shadow-lg hidden md:flex">
+                        01</div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                        Loi 09-08 & Confidentialité
+                        <div class="h-px flex-1 bg-slate-200 dark:bg-white/10"></div>
+                    </h3>
+
+                    <div class="prose prose-lg dark:prose-invert text-slate-500 dark:text-slate-400 leading-loose">
+                        <p>
+                            Les données personnelles collectées par <strong
+                                class="text-soliBlue dark:text-white">SoliCode Tanger</strong> sont destinées
+                            exclusivement au traitement de votre candidature.
+                            En conformité avec la loi n° 09-08, nous garantissons la <span
+                                class="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-soliBlue dark:text-blue-300 font-bold text-sm">CONFIDENTIALITÉ
+                                TOTALE</span> de vos informations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="relative pl-8 md:pl-16 mb-16 group">
+                    <div
+                        class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-white dark:bg-darkCard border-2 border-slate-200 dark:border-white/10 text-slate-300 dark:text-slate-600 font-black text-xl flex items-center justify-center group-hover:border-soliBlue group-hover:text-soliBlue transition-all shadow-lg hidden md:flex">
+                        02</div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                        Usage & Responsabilité
+                        <div class="h-px flex-1 bg-slate-200 dark:bg-white/10"></div>
+                    </h3>
+
+                    <div class="prose prose-lg dark:prose-invert text-slate-500 dark:text-slate-400 leading-loose">
+                        <p>
+                            Aucune donnée personnelle ne sera divulguée à des tiers. En validant ce formulaire, vous
+                            vous engagez à fournir des informations véridiques et à respecter l'intégrité de la
+                            plateforme.
+                            <span class="italic text-slate-400">Tout abus sera sanctionné selon les dispositions légales
+                                en vigueur.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="relative pl-8 md:pl-16 mb-12 group">
+                    <div
+                        class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-white dark:bg-darkCard border-2 border-slate-200 dark:border-white/10 text-slate-300 dark:text-slate-600 font-black text-xl flex items-center justify-center group-hover:border-soliBlue group-hover:text-soliBlue transition-all shadow-lg hidden md:flex">
+                        03</div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+                        Vos Droits & Contact
+                        <div class="h-px flex-1 bg-slate-200 dark:bg-white/10"></div>
+                    </h3>
+
+                    <p class="text-slate-500 dark:text-slate-400 text-lg mb-8 leading-relaxed">
+                        Conformément à la loi, vous disposez d'un droit d'accès, de rectification et de suppression de
+                        vos données. Pour toute requête, notre équipe est à votre disposition :
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <a href="#"
+                            class="group/card flex items-center gap-4 p-5 rounded-2xl bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/5 hover:border-soliBlue/30 hover:shadow-xl transition-all">
+                            <div
+                                class="w-12 h-12 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 shadow-sm group-hover/card:scale-110 transition-transform">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span
+                                    class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Support
+                                    Rapide</span>
+                                <span class="font-bold text-slate-900 dark:text-white">0634 39 05 05</span>
+                            </div>
+                        </a>
+                        <a href="#"
+                            class="group/card flex items-center gap-4 p-5 rounded-2xl bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/5 hover:border-soliBlue/30 hover:shadow-xl transition-all">
+                            <div
+                                class="w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-600 shadow-sm group-hover/card:scale-110 transition-transform">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Email
+                                    Officiel</span>
+                                <span class="font-bold text-slate-900 dark:text-white">info@solicode.co</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="bg-slate-50 dark:bg-[#151e32] rounded-3xl p-8 border border-slate-200 dark:border-white/5">
+                    <label class="flex items-start gap-4 cursor-pointer group/check mb-8">
+                        <div class="relative mt-1">
+                            <input type="checkbox" id="accept-terms" class="peer sr-only">
+                            <div
+                                class="w-7 h-7 rounded-lg border-2 border-slate-400 dark:border-slate-500 peer-checked:bg-soliBlue peer-checked:border-soliBlue transition-all flex items-center justify-center bg-white dark:bg-transparent shadow-sm">
+                                <i data-lucide="check"
+                                    class="w-5 h-5 text-white opacity-0 peer-checked:opacity-100 scale-50 peer-checked:scale-100 transition-all duration-300 stroke-[3]"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <span
+                                class="text-xl font-bold text-slate-900 dark:text-white block group-hover/check:text-soliBlue transition-colors">J'accepte
+                                les conditions générales</span>
+                            <span class="text-slate-500 dark:text-slate-400 text-sm">Je certifie l'exactitude des
+                                informations fournies.</span>
+                        </div>
+                    </label>
+
+                    <button id="btn-continue" onclick="handleContinue()" disabled
+                        class="w-full py-5 bg-slate-200 dark:bg-white/5 text-slate-400 dark:text-white/20 font-black text-xl rounded-2xl transition-all duration-300 cursor-not-allowed flex items-center justify-center gap-3 uppercase tracking-widest relative overflow-hidden group">
+                        <span class="relative z-10 transition-transform group-hover:translate-x-[-10px]">Confirmer &
+                            Continuer</span>
+                        <i data-lucide="arrow-right"
+                            class="w-6 h-6 relative z-10 opacity-0 group-hover:opacity-100 absolute right-1/3 translate-x-4 transition-all duration-300"></i>
+
+                        <!-- Shine Effect overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]">
+                        </div>
+                    </button>
+                    <style>
+                        @keyframes shimmer {
+                            100% {
+                                transform: translateX(100%);
+                            }
+                        }
+                    </style>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        const checkbox = document.getElementById('accept-terms');
+        const btn = document.getElementById('btn-continue');
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                btn.removeAttribute('disabled');
+                btn.classList.remove('bg-slate-200', 'dark:bg-white/5', 'text-slate-400', 'dark:text-white/20', 'cursor-not-allowed');
+                btn.classList.add('bg-soliBlue', 'hover:bg-soliYellow', 'text-white', 'hover:text-darkBg', 'shadow-2xl', 'shadow-soliBlue/30');
+            } else {
+                btn.setAttribute('disabled', 'true');
+                btn.classList.add('bg-slate-200', 'dark:bg-white/5', 'text-slate-400', 'dark:text-white/20', 'cursor-not-allowed');
+                btn.classList.remove('bg-soliBlue', 'hover:bg-soliYellow', 'text-white', 'hover:text-darkBg', 'shadow-2xl', 'shadow-soliBlue/30');
+            }
+        });
+
+        function handleContinue() {
+            alert('Redirection...');
+        }
+    </script>
+
+    <!-- Theme Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark')"
+        class="fixed bottom-6 right-6 p-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-glow z-50 cursor-pointer">
+        D-L
+    </button>
+</body>
+
+</html>

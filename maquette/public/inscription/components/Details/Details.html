@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoliCode Inscription Details V3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(57, 69, 186, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-darkBg transition-colors duration-300 font-sans p-6 md:p-12 overflow-x-hidden">
+
+    <section class="max-w-7xl mx-auto w-full space-y-20">
+
+        <!-- Top: CTA Only (Enhanced) -->
+        <div class="text-center py-8">
+            <div class="flex justify-center">
+                <button
+                    class="group relative px-12 py-6 bg-gradient-to-r from-soliBlue to-blue-600 hover:from-soliYellow hover:to-yellow-500 text-white hover:text-white font-extrabold text-2xl md:text-3xl rounded-full transition-all duration-500 shadow-[0_0_40px_rgba(57,69,186,0.5)] hover:shadow-[0_0_60px_rgba(242,183,5,0.6)] transform hover:-translate-y-2 hover:scale-105 flex items-center gap-4 overflow-hidden">
+
+                    <!-- Shine Effect -->
+                    <div
+                        class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent z-10">
+                    </div>
+
+                    <span class="relative z-20">Participer au test</span>
+                    <i data-lucide="arrow-right"
+                        class="w-8 h-8 relative z-20 group-hover:translate-x-2 transition-transform"></i>
+
+                    <!-- Pulse Ring -->
+                    <span
+                        class="absolute -inset-1 rounded-full border-2 border-soliBlue/30 hover:border-soliYellow/50 animate-pulse opacity-50"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Section 1: Intro + Ambience Video (Text Left, Video Right) -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Text Content 1 -->
+            <div class="space-y-6 order-2 lg:order-1">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-soliBlue dark:text-blue-300 text-sm font-semibold">
+                    <i data-lucide="rocket" class="w-4 h-4"></i>
+                    <span>Immersion Totale</span>
+                </div>
+
+                <h3 class="text-3xl font-bold text-slate-800 dark:text-white">
+                    Préparez-vous à entrer dans le monde du <span
+                        class="text-soliBlue underline decoration-soliYellow decoration-4 underline-offset-4">coding
+                        !</span>
+                </h3>
+
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Chez Solicode Tanger, nous rendons l'apprentissage du code simple et accessible à tous. Rejoignez
+                    notre communauté dynamique et découvrez nos programmes de formation de qualité.
+                </p>
+
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-slate-700 dark:text-slate-200">
+                        <div class="w-2 h-2 rounded-full bg-soliYellow"></div>
+                        <span>Apprentissage par la pratique</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-700 dark:text-slate-200">
+                        <div class="w-2 h-2 rounded-full bg-soliYellow"></div>
+                        <span>Environnement collaboratif</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Video 1 -->
+            <div class="relative group order-1 lg:order-2">
+                <div
+                    class="absolute inset-0 bg-soliBlue rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300 opacity-20">
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-darkCard">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/placeholder1"
+                        title="Immersion" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 2: Instructions + Guide Video (Video Left, Text Right) -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Video 2 -->
+            <div class="relative group">
+                <div
+                    class="absolute inset-0 bg-soliYellow rounded-2xl -rotate-3 group-hover:-rotate-6 transition-transform duration-300 opacity-20">
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-darkCard">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/placeholder2"
+                        title="Inscription" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Text Content 2 -->
+            <div class="space-y-6">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-sm font-semibold">
+                    <i data-lucide="info" class="w-4 h-4"></i>
+                    <span>Tutoriel</span>
+                </div>
+
+                <h3 class="text-3xl font-bold text-slate-800 dark:text-white">
+                    Comment s'inscrire <span class="text-soliYellow">étape par étape</span> ?
+                </h3>
+
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Que vous soyez débutant ou expert, Solicode Tanger vous accompagne. Suivez ce guide simple pour
+                    commencer votre voyage vers un avenir prometteur.
+                </p>
+
+                <div class="bg-white dark:bg-darkCard p-6 rounded-xl border-l-4 border-soliBlue shadow-sm">
+                    <p class="font-medium text-slate-800 dark:text-white italic">
+                        "Inscrivez-vous dès maintenant et commencez votre voyage vers un avenir prometteur dans le monde
+                        du coding !"
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Theme Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark')"
+        class="fixed bottom-6 right-6 p-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-glow z-50 cursor-pointer hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

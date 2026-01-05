@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoliCode inscription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(57, 69, 186, 0.3)',
+                        'neon': '0 0 20px rgba(57, 69, 186, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Updated Glass Utility */
+        .glass {
+            background-color: #3945ba;
+            /* SoliBlue for Light Mode */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .glass {
+            background-color: rgba(15, 23, 42, 0.8);
+            /* Dark BG restored for Dark Mode */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-darkBg transition-colors duration-300 font-sans overflow-x-hidden">
+
+    <!-- Header Component -->
+    <header class="w-full fixed top-0 left-0 z-50 glass transition-all duration-300 shadow-sm dark:shadow-none">
+        <div class="w-full px-8 lg:px-16 h-28 flex items-center justify-between">
+
+            <!-- 1. Logo Section -->
+            <div class="flex-shrink-0 group">
+                <a href="#" class="block relative">
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-soliBlue to-soliYellow rounded-full opacity-0 group-hover:opacity-10 blur-md transition duration-500">
+                    </div>
+                    <img src="https://solicode.co/images/logo/logo-solicode.svg" alt="SoliCode Logo"
+                        class="h-16 md:h-20 w-auto relative z-10 transition-transform duration-300 group-hover:scale-105 brightness-0 invert">
+                </a>
+            </div>
+
+            <!-- 2. Title Section -->
+            <div
+                class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block text-center">
+                <h1 class="text-3xl lg:text-5xl font-extrabold tracking-tight text-white uppercase relative">
+                    Tests de <span
+                        class="text-soliYellow dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-soliYellow dark:to-amber-400">Pré-sélection</span>
+                    <span
+                        class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-soliYellow rounded-full"></span>
+                </h1>
+            </div>
+
+            <!-- 3. Academic Year Section -->
+            <div class="flex-shrink-0 flex items-center">
+                <!-- Mobile Title (Visible only on small screens) -->
+                <span class="md:hidden font-bold text-white mr-3 text-lg">
+                    Tests
+                </span>
+
+                <div class="flex flex-col items-end border-r-4 border-soliYellow pr-6 py-2">
+                    <span
+                        class="text-xs md:text-sm font-bold text-white/80 dark:text-slate-400 uppercase tracking-widest leading-none mb-1.5">
+                        Année Académique
+                    </span>
+                    <span class="text-xl md:text-3xl font-bold text-white font-mono leading-none">
+                        2024<span class="text-soliYellow">-</span>2025
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Spacer to prevent content from hiding under fixed header -->
+    <div class="h-28"></div>
+
+    <!-- Main Content Wrapper -->
+    <main class="w-full max-w-7xl mx-auto p-6 md:p-12 space-y-20">
+
+        <!-- Details Component Content -->
+
+        <!-- Top: CTA Only (Enhanced) -->
+        <div class="text-center py-8 animate-fade-in-up">
+            <div class="flex justify-center">
+                <button
+                    class="group relative px-12 py-6 bg-gradient-to-r from-soliBlue to-blue-600 hover:from-soliYellow hover:to-yellow-500 text-white hover:text-white font-extrabold text-2xl md:text-3xl rounded-full transition-all duration-500 shadow-[0_0_40px_rgba(57,69,186,0.5)] hover:shadow-[0_0_60px_rgba(242,183,5,0.6)] transform hover:-translate-y-2 hover:scale-105 flex items-center gap-4 overflow-hidden">
+
+                    <!-- Shine Effect -->
+                    <div
+                        class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent z-10">
+                    </div>
+
+                    <span class="relative z-20">Participer au test</span>
+                    <i data-lucide="arrow-right"
+                        class="w-8 h-8 relative z-20 group-hover:translate-x-2 transition-transform"></i>
+
+                    <!-- Pulse Ring -->
+                    <span
+                        class="absolute -inset-1 rounded-full border-2 border-soliBlue/30 hover:border-soliYellow/50 animate-pulse opacity-50"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Section 1: Intro + Ambience Video (Text Left, Video Right) -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Text Content 1 -->
+            <div class="space-y-6 order-2 lg:order-1">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-soliBlue dark:text-blue-300 text-sm font-semibold">
+                    <i data-lucide="rocket" class="w-4 h-4"></i>
+                    <span>Immersion Totale</span>
+                </div>
+
+                <h3 class="text-3xl font-bold text-slate-800 dark:text-white">
+                    Préparez-vous à entrer dans le monde du <span
+                        class="text-soliBlue underline decoration-soliYellow decoration-4 underline-offset-4">coding
+                        !</span>
+                </h3>
+
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Chez Solicode Tanger, nous rendons l'apprentissage du code simple et accessible à tous. Rejoignez
+                    notre communauté dynamique et découvrez nos programmes de formation de qualité.
+                </p>
+
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-slate-700 dark:text-slate-200">
+                        <div class="w-2 h-2 rounded-full bg-soliYellow"></div>
+                        <span>Apprentissage par la pratique</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-700 dark:text-slate-200">
+                        <div class="w-2 h-2 rounded-full bg-soliYellow"></div>
+                        <span>Environnement collaboratif</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Video 1 -->
+            <div class="relative group order-1 lg:order-2">
+                <div
+                    class="absolute inset-0 bg-soliBlue rounded-2xl rotate-3 group-hover:rotate-6 transition-transform duration-300 opacity-20">
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-darkCard">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/placeholder1"
+                        title="Immersion" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 2: Instructions + Guide Video (Video Left, Text Right) -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Video 2 -->
+            <div class="relative group">
+                <div
+                    class="absolute inset-0 bg-soliYellow rounded-2xl -rotate-3 group-hover:-rotate-6 transition-transform duration-300 opacity-20">
+                </div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-darkCard">
+                    <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/placeholder2"
+                        title="Inscription" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Text Content 2 -->
+            <div class="space-y-6">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 text-sm font-semibold">
+                    <i data-lucide="info" class="w-4 h-4"></i>
+                    <span>Tutoriel</span>
+                </div>
+
+                <h3 class="text-3xl font-bold text-slate-800 dark:text-white">
+                    Comment s'inscrire <span class="text-soliYellow">étape par étape</span> ?
+                </h3>
+
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Que vous soyez débutant ou expert, Solicode Tanger vous accompagne. Suivez ce guide simple pour
+                    commencer votre voyage vers un avenir prometteur.
+                </p>
+
+                <div class="bg-white dark:bg-darkCard p-6 rounded-xl border-l-4 border-soliBlue shadow-sm">
+                    <p class="font-medium text-slate-800 dark:text-white italic">
+                        "Inscrivez-vous dès maintenant et commencez votre voyage vers un avenir prometteur dans le monde
+                        du coding !"
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Theme Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark')"
+        class="fixed bottom-6 right-6 p-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-glow z-50 cursor-pointer hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

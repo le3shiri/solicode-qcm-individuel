@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Règles du Test - SoliCode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 40px rgba(57, 69, 186, 0.25)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-darkBg transition-colors duration-300 font-sans p-6 md:p-12 overflow-x-hidden min-h-screen flex items-center justify-center">
+
+    <section class="max-w-6xl mx-auto w-full">
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left: Hero Graphic -->
+            <div class="relative hidden lg:block">
+                <!-- Decorative Circles -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-soliBlue/20 rounded-full blur-[100px] animate-pulse-slow">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-soliYellow/10 rounded-full blur-[60px]">
+                </div>
+
+                <!-- 3D Card Illusion -->
+                <div
+                    class="relative z-10 bg-white dark:bg-[#151e32] border border-slate-200 dark:border-white/10 rounded-[3rem] p-10 shadow-2xl transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-soliBlue text-white flex items-center justify-center shadow-lg shadow-soliBlue/30">
+                            <i data-lucide="brain-circuit" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-slate-900 dark:text-white uppercase">Test
+                                Psychotechnique</h3>
+                            <span class="text-soliBlue dark:text-soliYellow font-mono font-bold">Session
+                                2024-2025</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center justify-between p-4 bg-slate-50 dark:bg-darkBg rounded-2xl border border-slate-100 dark:border-white/5">
+                            <span class="font-bold text-slate-600 dark:text-slate-300 flex items-center gap-3">
+                                <i data-lucide="calculator" class="w-5 h-5 text-indigo-500"></i> Calcul Mental
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-black rounded-lg">15
+                                Q</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-between p-4 bg-slate-50 dark:bg-darkBg rounded-2xl border border-slate-100 dark:border-white/5">
+                            <span class="font-bold text-slate-600 dark:text-slate-300 flex items-center gap-3">
+                                <i data-lucide="lightbulb" class="w-5 h-5 text-amber-500"></i> Logique
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-black rounded-lg">15
+                                Q</span>
+                        </div>
+                        <div
+                            class="flex items-center justify-between p-4 bg-slate-50 dark:bg-darkBg rounded-2xl border border-slate-100 dark:border-white/5">
+                            <span class="font-bold text-slate-600 dark:text-slate-300 flex items-center gap-3">
+                                <i data-lucide="puzzle" class="w-5 h-5 text-cyan-500"></i> Mémoire
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 text-xs font-black rounded-lg">15
+                                Q</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="mt-8 pt-8 border-t border-slate-100 dark:border-white/10 flex justify-between items-center">
+                        <div class="flex items-center gap-2 text-slate-400">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                            <span class="font-bold">30 Minutes max</span>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full border-4 border-slate-100 dark:border-white/5 border-t-soliYellow animate-spin">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content & Rules -->
+            <div class="space-y-10">
+
+                <div class="space-y-4">
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 backdrop-blur-md text-soliBlue dark:text-soliYellow font-mono text-xs tracking-widest uppercase font-bold">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                        Attention
+                    </span>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase leading-none">
+                        Règles du <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-soliBlue to-blue-400">Jeu</span>
+                    </h1>
+                    <p class="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+                        Afin de finaliser votre processus de candidature, il vous faudra effectuer un examen en ligne.
+                        Soyez attentif aux points suivants :
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Rule 1 -->
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-900 dark:text-white font-black text-lg flex-shrink-0">
+                            1</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Structure de l'examen</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
+                                L'examen est divisé en trois sections : <strong
+                                    class="text-slate-700 dark:text-slate-200">Calcul Mental, Logique, et
+                                    Mémoire</strong>. Chaque section comporte 15 questions ne nécessitant pas de
+                                connaissances préalables.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Rule 2 -->
+                    <div class="flex gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-900 dark:text-white font-black text-lg flex-shrink-0">
+                            2</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Gestion du Temps & Score
+                            </h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
+                                Si vous bloquez, passez à la suivante. <br>
+                                <span class="text-red-500 font-bold">Attention :</span> Une réponse incorrecte entraîne
+                                la perte d'un point (-1). La rapidité influe aussi sur le score final.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="pt-6">
+                    <label
+                        class="flex items-center gap-4 cursor-pointer group mb-6 p-4 rounded-xl border border-transparent hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+                        <div class="relative">
+                            <input type="checkbox" id="accept-rules" class="peer sr-only">
+                            <div
+                                class="w-6 h-6 rounded-md border-2 border-slate-300 dark:border-slate-500 peer-checked:bg-soliBlue peer-checked:border-soliBlue transition-all flex items-center justify-center text-white">
+                                <i data-lucide="check"
+                                    class="w-4 h-4 opacity-0 peer-checked:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                        <span
+                            class="font-bold text-slate-700 dark:text-slate-200 group-hover:text-soliBlue transition-colors md:text-lg">Je
+                            comprends les règles et je suis prêt</span>
+                    </label>
+
+                    <button id="btn-start" disabled
+                        class="w-full py-5 bg-slate-200 dark:bg-white/10 text-slate-400 dark:text-white/20 font-black text-xl rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed group-enabled:hover:scale-[1.02] group-enabled:hover:shadow-2xl">
+                        <span>Commencer le Test</span>
+                        <i data-lucide="play-circle"
+                            class="w-6 h-6 transition-transform group-enabled:hover:translate-x-1"></i>
+                    </button>
+
+                    <p class="text-center text-xs text-slate-400 mt-4 font-mono">Bon courage !</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Theme Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark')"
+        class="fixed bottom-6 right-6 p-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-glow z-50 cursor-pointer">
+        D-L
+    </button>
+
+    <script>
+        lucide.createIcons();
+
+        const checkbox = document.getElementById('accept-rules');
+        const btn = document.getElementById('btn-start');
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                btn.removeAttribute('disabled');
+                btn.classList.remove('bg-slate-200', 'dark:bg-white/10', 'text-slate-400', 'dark:text-white/20');
+                btn.classList.add('bg-soliBlue', 'hover:bg-soliYellow', 'text-white', 'hover:text-darkBg', 'shadow-neon-blue');
+            } else {
+                btn.setAttribute('disabled', 'true');
+                btn.classList.add('bg-slate-200', 'dark:bg-white/10', 'text-slate-400', 'dark:text-white/20');
+                btn.classList.remove('bg-soliBlue', 'hover:bg-soliYellow', 'text-white', 'hover:text-darkBg', 'shadow-neon-blue');
+            }
+        });
+
+        btn.addEventListener('click', function () {
+            if (!this.disabled) {
+                // Logic to start test
+                alert('Le test commence...');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription - SoliCode V3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soliBlue: '#3945ba',
+                        soliYellow: '#F2B705',
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(57, 69, 186, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Input Styles */
+        .input-group {
+            position: relative;
+        }
+
+        .input-field {
+            width: 100%;
+            background: transparent;
+            border-bottom: 2px solid #e2e8f0;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .dark .input-field {
+            border-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .input-field:focus {
+            border-color: #3945ba;
+        }
+
+        .dark .input-field:focus {
+            border-color: #F2B705;
+        }
+
+        .input-label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .input-field:focus~.input-label,
+        .input-field:not(:placeholder-shown)~.input-label {
+            top: -12px;
+            font-size: 0.8rem;
+            color: #3945ba;
+            font-weight: 700;
+        }
+
+        .dark .input-field:focus~.input-label,
+        .dark .input-field:not(:placeholder-shown)~.input-label {
+            color: #F2B705;
+        }
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-darkBg transition-colors duration-300 font-sans p-6 md:p-12 overflow-x-hidden">
+
+    <section class="max-w-5xl mx-auto w-full">
+
+        <!-- Header: Clean Left Aligned -->
+        <div class="mb-16 border-l-4 border-soliBlue pl-6">
+            <h2 class="text-4xl md:text-6xl font-black text-slate-900 dark:text-white uppercase tracking-tighter">
+                Inscription
+            </h2>
+            <p class="text-xl text-slate-500 font-light mt-2">Dernière étape avant la validation</p>
+        </div>
+
+        <form id="inscriptionForm" class="grid lg:grid-cols-12 gap-12 lg:gap-24">
+
+            <!-- Left Column: Identity & Contact (Grid) -->
+            <div class="lg:col-span-8 space-y-12">
+
+                <!-- Section 1: Who are you? -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-4">
+                        <span class="w-8 h-[2px] bg-slate-400"></span> 01. Identité
+                    </h3>
+
+                    <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+
+                        <!-- CIN -->
+                        <div class="input-group md:col-span-2">
+                            <input type="text" id="cin" class="input-field" placeholder=" ">
+                            <label for="cin" class="input-label">CIN / Code Massar</label>
+                        </div>
+
+                        <!-- Nom Fr -->
+                        <div class="input-group">
+                            <input type="text" id="nom" class="input-field" placeholder=" ">
+                            <label for="nom" class="input-label">Nom (Français)</label>
+                        </div>
+
+                        <!-- Prénom Fr -->
+                        <div class="input-group">
+                            <input type="text" id="prenom" class="input-field" placeholder=" ">
+                            <label for="prenom" class="input-label">Prénom (Français)</label>
+                        </div>
+
+                        <!-- Nom Ar -->
+                        <div class="input-group text-right" dir="rtl">
+                            <input type="text" id="nom_ar" class="input-field text-right" placeholder=" ">
+                            <label for="nom_ar" class="input-label right-0 left-auto origin-top-right">النسب
+                                (Arabe)</label>
+                        </div>
+
+                        <!-- Prénom Ar -->
+                        <div class="input-group text-right" dir="rtl">
+                            <input type="text" id="prenom_ar" class="input-field text-right" placeholder=" ">
+                            <label for="prenom_ar" class="input-label right-0 left-auto origin-top-right">الإسم
+                                (Arabe)</label>
+                        </div>
+
+                        <!-- Date Naiss -->
+                        <div class="input-group">
+                            <input type="date" id="date" class="input-field" placeholder=" " required>
+                            <label for="date" class="input-label">Date de Naissance (17-35 ans)</label>
+                        </div>
+
+                        <!-- Sexe -->
+                        <div class="flex items-center gap-6 pt-2">
+                            <span class="text-sm font-bold text-slate-400 uppercase">Sexe:</span>
+                            <div class="flex gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="sexe" value="H" class="peer sr-only">
+                                    <span
+                                        class="px-4 py-2 rounded-full border border-slate-300 dark:border-white/20 text-slate-500 font-bold peer-checked:bg-slate-900 peer-checked:text-white dark:peer-checked:bg-white dark:peer-checked:text-slate-900 transition-all">Homme</span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="sexe" value="F" class="peer sr-only">
+                                    <span
+                                        class="px-4 py-2 rounded-full border border-slate-300 dark:border-white/20 text-slate-500 font-bold peer-checked:bg-slate-900 peer-checked:text-white dark:peer-checked:bg-white dark:peer-checked:text-slate-900 transition-all">Femme</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Section 2: Contact -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-4">
+                        <span class="w-8 h-[2px] bg-slate-400"></span> 02. Contact
+                    </h3>
+
+                    <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+                        <div class="input-group md:col-span-2">
+                            <input type="email" id="email" class="input-field" placeholder=" ">
+                            <label for="email" class="input-label">Adresse Email</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="tel" class="input-field" placeholder=" " pattern="^(06|07)[0-9]{8}$"
+                                maxlength="10"
+                                title="Le numéro doit commencer par 06 ou 07 et contenir 10 chiffres (ex: 0612345678)"
+                                required>
+                            <label for="tel" class="input-label">Téléphone (06... / 07...)</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="ville" class="input-field" placeholder=" ">
+                            <label for="ville" class="input-label">Ville</label>
+                        </div>
+                        <div class="input-group md:col-span-2">
+                            <input type="text" id="adresse" class="input-field" placeholder=" ">
+                            <label for="adresse" class="input-label">Adresse Postale</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Academic -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-4">
+                        <span class="w-8 h-[2px] bg-slate-400"></span> 03. Cursus
+                    </h3>
+
+                    <div
+                        class="bg-slate-50 dark:bg-white/5 p-8 rounded-3xl border border-slate-100 dark:border-white/5">
+
+                        <div class="mb-8">
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-3">Niveau Scolaire</label>
+                            <select id="niveauScolaire" onchange="handleNiveauChange()"
+                                class="w-full bg-white dark:bg-darkBg border-none shadow-lg rounded-xl px-4 py-4 text-lg font-bold text-slate-900 dark:text-white outline-none cursor-pointer hover:ring-2 hover:ring-soliBlue/20 transition-all">
+                                <option value="" disabled selected>Sélectionner niveau...</option>
+                                <optgroup label="Supérieur">
+                                    <option value="bac+6">BAC + 6</option>
+                                    <option value="bac+5">BAC + 5</option>
+                                    <option value="bac+3">BAC + 3</option>
+                                    <option value="bac+2">BAC + 2</option>
+                                </optgroup>
+                                <optgroup label="Baccalauréat">
+                                    <option value="bac">Ayant le Bac</option>
+                                </optgroup>
+                                <optgroup label="Secondaire">
+                                    <option value="2eme_bac">2ème Année Bac</option>
+                                    <option value="1ere_bac">1ère Année Bac</option>
+                                    <option value="tronc_commun">Tronc Commun</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Dynamic -->
+                        <div id="dynamicFields" class="grid md:grid-cols-2 gap-6 hidden">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase mb-3">Série du
+                                    Bac</label>
+                                <select
+                                    class="w-full bg-white dark:bg-darkBg border-none shadow-sm rounded-xl px-4 py-3 font-semibold text-slate-900 dark:text-white outline-none">
+                                    <option value="">Choisir...</option>
+                                    <option value="sc">Scientifique</option>
+                                    <option value="tech">Technique</option>
+                                    <option value="eco">Économie</option>
+                                    <option value="lettre">Lettres</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase mb-3">Année</label>
+                                <input type="number" placeholder="2024"
+                                    class="w-full bg-white dark:bg-darkBg border-none shadow-sm rounded-xl px-4 py-3 font-semibold text-slate-900 dark:text-white outline-none">
+                            </div>
+                            <div id="diplomaRow" class="md:col-span-2 hidden">
+                                <label class="block text-xs font-bold text-slate-400 uppercase mb-3">Diplôme
+                                    Obtenu</label>
+                                <input type="text" placeholder="Ex: Licence en Informatique"
+                                    class="w-full bg-white dark:bg-darkBg border-none shadow-sm rounded-xl px-4 py-3 font-semibold text-slate-900 dark:text-white outline-none">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Photo & Action (Sticky) -->
+            <div class="lg:col-span-4 lg:sticky lg:top-12 h-fit space-y-8 order-first lg:order-last">
+
+                <!-- Photo Upload Card -->
+                <div
+                    class="bg-white dark:bg-[#151e32] p-8 rounded-[2.5rem] shadow-2xl shadow-soliBlue/10 dark:shadow-none border border-slate-100 dark:border-white/5 text-center relative overflow-hidden group">
+                    <div class="relative w-48 h-48 mx-auto mb-6 rounded-full border-[6px] border-slate-50 dark:border-darkBg shadow-inner overflow-hidden cursor-pointer"
+                        id="picContainer">
+                        <input type="file" id="profilePic" accept="image/*"
+                            class="absolute inset-0 z-20 opacity-0 cursor-pointer w-full h-full">
+                        <img id="imgPreview" src="https://ui-avatars.com/api/?name=?&background=random&color=fff"
+                            class="w-full h-full object-cover">
+
+                        <!-- Hover Overlay -->
+                        <div
+                            class="absolute inset-0 bg-soliBlue/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i data-lucide="camera" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Photo de Profil</h3>
+                    <p class="text-sm text-slate-400 mb-6">Format JPG/PNG. Visage visible.</p>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button"
+                    class="w-full py-6 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-3xl font-black text-xl uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl flex items-center justify-center gap-3">
+                    <span>Valider</span>
+                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <script>
+        lucide.createIcons();
+
+        // 1. Inputs Animation Logic (Floating Labels)
+        // Handled by CSS :placeholder-shown
+
+        // 2. Profile Pic
+        const fileInput = document.getElementById('profilePic');
+        const imgPreview = document.getElementById('imgPreview');
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (ev) => imgPreview.src = ev.target.result;
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // 3. Dynamic Fields
+        function handleNiveauChange() {
+            const level = document.getElementById('niveauScolaire').value;
+            const container = document.getElementById('dynamicFields');
+            const diplomaRow = document.getElementById('diplomaRow');
+
+            container.classList.add('hidden');
+            diplomaRow.classList.add('hidden');
+
+            const high = ['bac+6', 'bac+5', 'bac+3', 'bac+2'];
+            const mid = ['bac'];
+
+            if (high.includes(level)) {
+                container.classList.remove('hidden');
+                diplomaRow.classList.remove('hidden');
+            } else if (mid.includes(level)) {
+                container.classList.remove('hidden');
+            }
+        }
+
+        // 4. Age Validation (17 - 35 years)
+        const dateInput = document.getElementById('date');
+        const today = new Date();
+
+        // Min Age: 17 years ago (Maximum valid birth date)
+        const maxBirthDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate());
+        // Max Age: 35 years ago (Minimum valid birth date)
+        const minBirthDate = new Date(today.getFullYear() - 35, today.getMonth(), today.getDate());
+
+        // Helper to format Date to YYYY-MM-DD
+        const formatDate = (d) => d.toISOString().split('T')[0];
+
+        dateInput.max = formatDate(maxBirthDate);
+        dateInput.min = formatDate(minBirthDate);
+
+        dateInput.addEventListener('change', function () {
+            if (!this.value) return;
+            const selectedDate = new Date(this.value);
+            if (selectedDate > maxBirthDate) {
+                alert("Vous devez avoir au moins 17 ans pour vous inscrire.");
+                this.value = "";
+            } else if (selectedDate < minBirthDate) {
+                alert("La limite d'âge est fixée à 35 ans.");
+                this.value = "";
+            }
+        });
+    </script>
+
+    <!-- Theme Toggle -->
+    <button onclick="document.documentElement.classList.toggle('dark')"
+        class="fixed bottom-6 right-6 p-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-glow z-50 cursor-pointer">
+        D-L
+    </button>
+</body>
+
+</html>
